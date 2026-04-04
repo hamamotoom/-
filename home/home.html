@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تعلم الإنجليزية - الرئيسية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+    <div class="phone-container">
+        <!-- شاشة المسار -->
+        <div id="path-screen" class="screen active">
+            <header class="app-header">
+                <div class="logo">
+                    <div class="logo-icon">E</div>
+                    <div class="logo-text">
+                        <h1>تعلم الإنجليزية</h1>
+                        <p>مسارك التلقائي للتعلم</p>
+                    </div>
+                </div>
+                <div class="user-profile">
+                    <div class="user-avatar">م</div>
+                    <div class="user-grade" id="userGrade"></div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <div class="card path-card">
+                    <div class="path-header">
+                        <h2><i class="fas fa-road"></i> مسارك التعليمي</h2>
+                        <span class="badge">مسار تلقائي</span>
+                    </div>
+                    
+                    <div class="motivational-message">
+                        <p>🌟 كل يوم تعلم خطوة نحو النجاح!</p>
+                        <p>استمتع بالتعلم واكتشف عالماً جديداً من اللغة الإنجليزية</p>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="openUnitSelector()">
+                        <i class="fas fa-play-circle"></i> ابدأ التعلم الآن
+                    </button>
+                    
+                    <div id="new-path-options" class="new-path-options" style="display: none;">
+                        <p class="path-welcome-text">🎉 تم إنشاء مسارك التعليمي بنجاح!</p>
+                        <button class="btn btn-primary" onclick="continueEducationPath()">
+                            <i class="fas fa-play"></i> اكمل المسار
+                        </button>
+                        <button class="btn btn-secondary" onclick="openUnitSelector()">
+                            <i class="fas fa-edit"></i> تعديل المسار
+                        </button>
+                    </div>
+                    
+                    <div id="active-path-info" class="active-path-info" style="display: none;">
+                        <div class="path-info-content">
+                            <p class="path-label">المسار التعليمي الحالي:</p>
+                            <p class="path-name" id="current-unit-name"></p>
+                            <button class="btn btn-primary" onclick="continueEducationPath()">
+                                <i class="fas fa-play"></i> اكمل المسار
+                            </button>
+                            <button class="btn btn-secondary" onclick="openUnitSelector()">
+                                <i class="fas fa-edit"></i> تعديل المسار
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="guide-container">
+                        <div class="guide-card">
+                            <div class="guide-header">
+                                <div class="guide-icon"><i class="fas fa-comments"></i></div>
+                                <h4>رفيق</h4>
+                            </div>
+                            <p class="guide-message">مرحبًا! أنا رفيق، سأرشدك في رحلة تعلم الإنجليزية. اختر وحدة وابدأ التعلم الآن!</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- نافذة اختيار الوحدة -->
+        <div id="unit-modal" class="modal">
+            <div class="modal-content modal-units">
+                <div class="modal-header modal-header-units">
+                    <h3>📚 اختر وحدتك التعليمية</h3>
+                    <button class="modal-close" onclick="closeUnitModal()">✕</button>
+                </div>
+                <div class="units-intro">
+                    <p>لديك <strong id="units-count">0</strong> وحدات تعليمية متاحة</p>
+                    <p class="intro-text">اختر الوحدة التي تريد البدء بها وانطلق في رحلتك نحو إتقان اللغة الإنجليزية</p>
+                </div>
+                <div class="units-list">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+            </div>
+        </div>
+
+        <!-- شاشة قائمة الحصص -->
+        <div id="lessons-list-screen" class="screen">
+            <header class="app-header">
+                <div class="logo">
+                    <div class="logo-icon">E</div>
+                    <div class="logo-text">
+                        <h1>الحصص التعليمية</h1>
+                        <p id="lessons-unit-name">الوحدة</p>
+                    </div>
+                </div>
+                <button class="btn-icon back-btn" onclick="goBackToPath()">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </header>
+
+            <main class="main-content">
+                <div class="lessons-info-banner">
+                    <p class="banner-text">لديك <strong id="lessons-count">0</strong> حصص في هذه الوحدة</p>
+                    <p class="banner-description">استمتع بالتعلم واختر الحصة التي تريد البدء بها</p>
+                </div>
+                <div id="lessons-grid" class="lessons-grid">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+            </main>
+        </div>
+
+        <!-- شاشة الحصة الفردية -->
+        <div id="lesson-view-screen" class="screen">
+            <header class="app-header">
+                <div class="logo">
+                    <div class="logo-icon">E</div>
+                    <div class="logo-text">
+                        <h1 id="lesson-title-header">الحصة</h1>
+                        <p id="lesson-unit-header">الوحدة</p>
+                    </div>
+                </div>
+                <button class="btn-icon back-btn" onclick="goBackToLessonsList()">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </header>
+
+            <main class="main-content">
+                <div class="video-header">
+                    <h3><i class="fab fa-youtube"></i> فيديو الدرس</h3>
+                    <p>شاهد الفيديو التعليمي لفهم المحتوى بشكل أفضل</p>
+                </div>
+
+                <div class="lesson-video-container">
+                    <iframe id="lesson-iframe" width="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div class="lesson-content">
+                    <div class="card">
+                        <h3><i class="fas fa-list-check"></i> أسئلة الحصة</h3>
+                        <div id="lesson-questions"></div>
+                        <div class="lesson-actions">
+                            <button class="btn btn-primary" onclick="submitLesson()">
+                                <i class="fas fa-check-circle"></i> تسليم الحصة
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="lesson-result" class="lesson-result" style="display: none;"></div>
+                </div>
+            </main>
+        </div>
+
+        <!-- التنقل السفلي -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item active">
+                <i class="fas fa-road"></i>
+                <span>المسار</span>
+            </a>
+            <a href="../lessons/lessons.html" class="nav-item">
+                <i class="fas fa-book-open"></i>
+                <span>الحصص</span>
+            </a>
+            <a href="../exams/exams.html" class="nav-item">
+                <i class="fas fa-file-alt"></i>
+                <span>الامتحانات</span>
+            </a>
+            <a href="../stats/stats.html" class="nav-item">
+                <i class="fas fa-chart-bar"></i>
+                <span>الإحصائيات</span>
+            </a>
+        </nav>
+    </div>
+
+    <script type="module" src="./home.js"></script>
+</body>
+</html>

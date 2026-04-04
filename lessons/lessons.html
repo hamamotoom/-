@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تعلم الإنجليزية - الحصص</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./lessons.css">
+</head>
+<body>
+    <div class="phone-container">
+        <!-- شاشة قائمة الحصص -->
+        <div id="lessons-screen" class="screen active">
+            <header class="app-header">
+                <div class="logo">
+                    <div class="logo-icon">E</div>
+                    <div class="logo-text">
+                        <h1>الحصص التعليمية</h1>
+                        <p id="header-unit-name">اختر الوحدة لعرض الحصص</p>
+                    </div>
+                </div>
+                <a href="../home/home.html" class="btn-icon back-btn">
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </header>
+
+            <main class="main-content">
+                <div class="lessons-info-banner">
+                    <p class="banner-text">لديك <strong id="lesson-count">0</strong> حصص في هذه الوحدة</p>
+                    <p class="banner-description">استمتع بالتعلم واختر الحصة التي تريد البدء بها</p>
+                </div>
+                <div class="units-container">
+                    <!-- سيتم توليد وحدات الحصص تلقائياً من app.js -->
+                </div>
+            </main>
+        </div>
+
+        <!-- شاشة عرض الحصة الفردية -->
+        <div id="lesson-view-screen" class="screen">
+            <header class="app-header">
+                <div class="logo">
+                    <div class="logo-icon">E</div>
+                    <div class="logo-text">
+                        <h1>الحصة التعليمية</h1>
+                        <p id="lesson-title-header">عنوان الحصة</p>
+                    </div>
+                </div>
+                <button class="btn-icon back-btn" id="back-to-lessons-btn">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </header>
+
+            <main class="main-content">
+                <div class="lesson-video-container">
+                    <iframe id="lesson-iframe" width="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div class="lesson-content">
+                    <div class="card">
+                        <h3><i class="fas fa-list-check"></i> أسئلة الحصة</h3>
+                        <div id="lesson-questions"></div>
+                        <div class="lesson-actions">
+                            <button class="btn btn-primary" id="submit-lesson-btn">
+                                <i class="fas fa-check-circle"></i> تسليم الحصة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- التنقل السفلي -->
+        <nav class="bottom-nav">
+            <a href="../home/home.html" class="nav-item">
+                <i class="fas fa-road"></i>
+                <span>المسار</span>
+            </a>
+            <a href="lessons.html" class="nav-item active">
+                <i class="fas fa-book-open"></i>
+                <span>الحصص</span>
+            </a>
+            <a href="../exams/exams.html" class="nav-item">
+                <i class="fas fa-file-alt"></i>
+                <span>الامتحانات</span>
+            </a>
+            <a href="../stats/stats.html" class="nav-item">
+                <i class="fas fa-chart-bar"></i>
+                <span>الإحصائيات</span>
+            </a>
+        </nav>
+    </div>
+
+    <script type="module" src="./lessons.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منارة - تسجيل الدخول</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- تم نقل جميع التنسيقات إلى register.css -->
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-lightbulb logo-icon"></i>
+                <div class="logo-text">من<span>ارة</span></div>
+            </div>
+            <a href="../login/index.html" class="back-link">
+                <i class="fas fa-arrow-right"></i>
+                العودة للصفحة الرئيسية
+            </a>
+        </div>
+    </header>
+
+    <main class="login-page">
+        <div class="login-card">
+            <!-- شريط المعلومات (بيانات تجريبية) -->
+            <div class="info-bar">
+                <i class="fas fa-info-circle"></i>
+                حافض علا سريت البيانات
+            </div>
+
+            <h1 class="login-title">تسجيل الدخول</h1>
+            <p class="login-subtitle">اختر نوع المستخدم وأدخل بياناتك</p>
+
+            <div class="login-form-container">
+                <!-- نموذج تسجيل الدخول -->
+                <div class="form-step active" id="loginForm">
+                    <h2 class="form-title" id="formTitle">تسجيل دخول الطالب</h2>
+                    <form id="loginFormElement">
+                        <!-- حقول الطالب -->
+                        <div class="student-fields active" id="studentFields">
+                            <div class="form-group input-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="studentUsername" class="form-input" placeholder="اسم المستخدم" required>
+                                <div class="error-message" id="studentUsernameError">يرجى إدخال اسم المستخدم</div>
+                            </div>
+                            
+                            <div class="form-group input-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="studentPassword" class="form-input" placeholder="كلمة السر (8 خانات على الأقل)" required minlength="8">
+                                <div class="error-message" id="studentPasswordError">كلمة السر يجب أن تكون 8 خانات على الأقل</div>
+                                <div class="form-hint">يجب أن تكون كلمة السر 8 خانات على الأقل</div>
+                            </div>
+                        </div>
+                        
+                        <!-- حقول الأدمن -->
+                        <div class="admin-fields" id="adminFields">
+                            <div class="form-group input-icon">
+                                <i class="fas fa-user-shield"></i>
+                                <input type="text" id="adminUsername" class="form-input" placeholder="اسم المستخدم">
+                                <div class="error-message" id="adminUsernameError">يرجى إدخال اسم المستخدم</div>
+                            </div>
+                            
+                            <div class="form-group input-icon">
+                                <i class="fas fa-id-card"></i>
+                                <input type="text" id="adminMinisterialNumber" class="form-input" placeholder="الرقم الوزاري (8 خانات)" minlength="8">
+                                <div class="error-message" id="adminMinisterialNumberError">الرقم الوزاري يجب أن يكون 8 خانات</div>
+                                <div class="form-hint">الرقم الوزاري للحسابات الإدارية</div>
+                            </div>
+                            
+                            <div class="form-group input-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="adminPassword" class="form-input" placeholder="كلمة السر (8 خانات على الأقل)" minlength="8">
+                                <div class="error-message" id="adminPasswordError">كلمة السر يجب أن تكون 8 خانات</div>
+                                <div class="form-hint">يجب أن تكون كلمة السر 8 خانات على الأقل</div>
+                            </div>
+                        </div>
+                        
+                        <!-- اختيار نوع المستخدم -->
+                        <div class="user-type-options">
+                            <span class="user-type-label">نوع المستخدم:</span>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="userType" value="student" id="studentRadio" checked>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">طالب</span>
+                                </label>
+                                
+                                <label class="radio-option">
+                                    <input type="radio" name="userType" value="admin" id="adminRadio">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">أدمن</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="create-account-toggle">
+                            <span class="toggle-text">ليس لديك حساب؟</span>
+                            <button type="button" class="toggle-btn" id="showCreateAccount">إنشاء حساب جديد</button>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="loginSubmitBtn">تسجيل الدخول</button>
+                    </form>
+                </div>
+                
+                <!-- نموذج إنشاء حساب طالب جديد -->
+                <div class="form-step" id="createAccountForm">
+                    <h2 class="form-title">إنشاء حساب طالب جديد</h2>
+                    <form id="createAccountFormElement">
+                        <div class="form-group input-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                            <select id="studentGrade" class="form-input" required>
+                                <option value="">اختر الصف الدراسي</option>
+                                <option value="4">الصف الرابع</option>
+                                <option value="5">الصف الخامس</option>
+                                <option value="6">الصف السادس</option>
+                                <option value="7">الصف السابع</option>
+                                <option value="8">الصف الثامن</option>
+                                <option value="9">الصف التاسع</option>
+                                <option value="10">الصف العاشر</option>
+                            </select>
+                            <div class="error-message" id="studentGradeError">يرجى اختيار الصف الدراسي</div>
+                        </div>
+                        
+                        <div class="form-group input-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="newStudentUsername" class="form-input" placeholder="اختر اسم مستخدم فريد" required>
+                            <div class="error-message" id="newStudentUsernameError">يرجى إدخال اسم مستخدم</div>
+                            <div class="form-hint">يجب أن يكون اسم المستخدم فريداً</div>
+                        </div>
+                        
+                        <div class="form-group input-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="newStudentPassword" class="form-input" placeholder="كلمة السر (8-12 خانة)" required minlength="8" maxlength="12">
+                            <div class="error-message" id="newStudentPasswordError">كلمة السر يجب أن تكون بين 8 و 12 خانة</div>
+                            <div class="form-hint">يجب أن تكون كلمة السر بين 8 و 12 خانة</div>
+                        </div>
+                        
+                        <div class="form-group input-icon">
+                            <i class="fas fa-check-circle"></i>
+                            <input type="password" id="confirmPassword" class="form-input" placeholder="تأكيد كلمة السر" required minlength="8" maxlength="12">
+                            <div class="error-message" id="confirmPasswordError">كلمة السر غير متطابقة</div>
+                        </div>
+                        
+                        <div class="create-account-toggle">
+                            <span class="toggle-text">لديك حساب بالفعل؟</span>
+                            <button type="button" class="toggle-btn" id="showLoginForm">تسجيل الدخول</button>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">إنشاء الحساب</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-lightbulb logo-icon"></i>
+                    <div class="logo-text">من<span>ارة</span></div>
+                </div>
+                <p>منارة © 2025 - جميع الحقوق محفوظة</p>
+            </div>
+            <div class="copyright">
+                <p>صمم خصيصاً لطلاب المدارس لتحسين تجربة التعلم والتفوق الدراسي</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="register.js"></script>
+</body>
+</html>

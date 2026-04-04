@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة تعلم الإنجليزية - الامتحانات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./exams.css">
+</head>
+<body>
+    <div class="phone-container">
+        <!-- شاشة قائمة الامتحانات -->
+        <div id="exams-screen" class="screen active">
+            <header class="app-header">
+                <div class="logo">
+                    <div class="logo-icon">E</div>
+                    <div class="logo-text">
+                        <h1>الامتحانات</h1>
+                        <p>اختبر معرفتك</p>
+                    </div>
+                </div>
+                <a href="../home/home.html" class="btn-icon back-btn">
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </header>
+
+            <main class="main-content">
+                <div class="exams-container">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+            </main>
+        </div>
+
+        <!-- شاشة عرض الامتحان الفردي -->
+        <div id="exam-view-screen" class="screen">
+            <header class="app-header">
+                <div class="logo">
+                    <div class="logo-icon">E</div>
+                    <div class="logo-text">
+                        <h1>الامتحان</h1>
+                        <p id="exam-title-header">عنوان الامتحان</p>
+                    </div>
+                </div>
+                <button class="btn-icon back-btn" id="back-to-exams-btn">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </header>
+
+            <main class="main-content">
+                <div class="exam-content">
+                    <div class="card">
+                        <h3><i class="fas fa-file-alt"></i> أسئلة الامتحان</h3>
+                        <div id="exam-questions"></div>
+                        <div class="exam-actions">
+                            <button class="btn btn-primary" id="submit-exam-btn">
+                                <i class="fas fa-check-circle"></i> تسليم الامتحان
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- التنقل السفلي -->
+        <nav class="bottom-nav">
+            <a href="../home/home.html" class="nav-item">
+                <i class="fas fa-road"></i>
+                <span>المسار</span>
+            </a>
+            <a href="../lessons/lessons.html" class="nav-item">
+                <i class="fas fa-book-open"></i>
+                <span>الحصص</span>
+            </a>
+            <a href="exams.html" class="nav-item active">
+                <i class="fas fa-file-alt"></i>
+                <span>الامتحانات</span>
+            </a>
+            <a href="../stats/stats.html" class="nav-item">
+                <i class="fas fa-chart-bar"></i>
+                <span>الإحصائيات</span>
+            </a>
+        </nav>
+    </div>
+
+    <script type="module" src="./exams.js"></script>
+</body>
+</html>

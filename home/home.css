@@ -1,0 +1,1086 @@
+/* ===== CSS Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563EB;
+    --primary-light: rgba(37, 99, 235, 0.1);
+    --success: #22C55E;
+    --success-light: rgba(34, 197, 94, 0.1);
+    --background: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #64748B;
+    --border: #E2E8F0;
+    --inactive: #94A3B8;
+    --radius: 16px;
+    --button-radius: 12px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --spacing: 16px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans Arabic', sans-serif;
+    background-color: var(--background);
+    color: var(--text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* ===== هيكل التطبيق ===== */
+.phone-container {
+    width: 100%;
+    max-width: 420px;
+    height: 90vh;
+    max-height: 900px;
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    position: relative;
+}
+
+.screen {
+    display: none;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--background);
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* ===== الهيدر ===== */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing);
+    background-color: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.logo-text h1 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.logo-text p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #3B82F6);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* ===== شاشة عرض الحصة الفردية ===== */
+.lesson-video-container {
+    background: linear-gradient(135deg, #0F172A 0%, #1e293b 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
+    padding: 8px;
+    position: relative;
+    height: 52vh;
+    max-height: 520px;
+    min-height: 260px;
+    display: block;
+    margin-bottom: 16px;
+    background-color: #000;
+}
+
+.lesson-video-container iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== المحتوى الرئيسي ===== */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing);
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 100%;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.path-card {
+    border: 2px solid var(--primary-light);
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.path-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.path-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.badge {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ===== الأزرار ===== */
+.btn {
+    display: block;
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: var(--button-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    margin: 20px 0;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-secondary {
+    background-color: var(--primary);
+    color: white;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    height: 44px;
+}
+
+.btn-secondary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* ===== صفحات إضافية ===== */
+
+/* شاشة قائمة الحصص */
+.lessons-info-banner {
+    background: linear-gradient(135deg, #DBEAFE, #E0E7FF);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+    border-right: 4px solid var(--primary);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner-text {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: center;
+}
+
+.banner-text strong {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.banner-description {
+    margin: 8px 0 0 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    text-align: center;
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lesson-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.lesson-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15);
+}
+
+.lesson-card.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.lesson-card.locked:hover {
+    border-color: transparent;
+    transform: none;
+}
+
+.lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.lesson-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.lesson-status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-completed {
+    background-color: #DCFCE7;
+    color: #166534;
+}
+
+.status-current {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.status-locked {
+    background-color: #F3F4F6;
+    color: #6B7280;
+}
+
+.lesson-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.lesson-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ===== تحسينات حاوية الفيديو ===== */
+.video-header {
+    text-align: center;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: linear-gradient(135deg, #F0F9FF, #E0E7FF);
+    border-radius: 12px;
+    border-right: 4px solid var(--primary);
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-header h3 {
+    margin: 0 0 8px 0;
+    color: var(--primary);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.video-header p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.lesson-video-container {
+    background: linear-gradient(135deg, #0F172A 0%, #1e293b 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
+    padding: 8px;
+    position: relative;
+    height: 55vh; /* زيادة الارتفاع قليلاً */
+    max-height: 550px;
+    min-height: 280px;
+    display: block;
+    margin-bottom: 16px;
+    background-color: #000;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    /* التأكد من الظهور */
+    visibility: visible;
+    opacity: 1;
+    /* جعلها أكثر بروزاً */
+    border: 3px solid rgba(37, 99, 235, 0.3);
+}
+
+.lesson-video-container iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    border: none;
+    position: relative;
+    z-index: 1;
+    /* التأكد من الظهور */
+    visibility: visible;
+    opacity: 1;
+}
+
+/* رسالة بديلة عند عدم وجود فيديو */
+.video-fallback-message {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* شاشة الحصة الفردية */
+.lesson-content {
+    padding: 0 var(--spacing);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.question-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+}
+
+.question-text {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--background);
+}
+
+.option-label:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary);
+}
+
+.option-label input[type="radio"] {
+    cursor: pointer;
+}
+
+.lesson-actions {
+    margin-top: 20px;
+}
+
+/* نتيجة الحصة - تظهر بنفس نمط بطاقات الحصص */
+.lesson-result {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    padding: 0 8px;
+}
+
+.lesson-result .lesson-card {
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 16px;
+    background: var(--card-bg);
+    cursor: default;
+    transition: all 0.2s ease;
+}
+
+.lesson-result .lesson-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15);
+}
+
+.lesson-result .lesson-header {
+    margin-bottom: 12px;
+}
+
+.lesson-result .lesson-meta {
+    margin-top: 0;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.lesson-result .lesson-summary-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lesson-result .lesson-summary-actions .btn {
+    width: 100%;
+    height: 44px;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.exam-summary {
+    background: linear-gradient(135deg, #f0f9ff 0%, #f3e8ff 100%);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 24px;
+    border: 2px solid #e0e7ff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.summary-header h4 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 0 12px 0;
+}
+
+.summary-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.summary-stat { display: flex; flex-direction: column; align-items: center; padding: 8px; background: white; border-radius: 8px; border: 1px solid #e0e7ff; }
+.summary-stat .stat-label { font-size: 0.75rem; color: var(--text-secondary); font-weight: 500; }
+.summary-stat .stat-value { font-size: 1.3rem; font-weight: 700; margin-top: 4px; }
+.correct-value { color: var(--success); }
+.wrong-value { color: #EF4444; }
+.percent-value { color: var(--primary); }
+.points-value { color: #F59E0B; }
+
+.exam-summary-list { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+.exam-summary-item { background: #ffffff; border: 1px solid rgba(16,24,40,0.04); padding: 8px 10px; border-radius: 8px; font-size: 0.95rem; text-align: right; color: var(--text-primary); }
+.exam-summary-item.correct-item { border-left: 4px solid var(--success); }
+.exam-summary-item.wrong-item { border-left: 4px solid #EF4444; }
+
+.lesson-summary-actions { display: flex; gap: 10px; margin-top: 16px; }
+
+@media (max-width: 420px) {
+    .summary-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: var(--primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    font-size: 1.2rem;
+}
+
+.btn-icon:hover {
+    background-color: var(--primary-light);
+}
+
+/* انتقالات سلسة بين الشاشات */
+.screen {
+    animation: screenTransition 0.3s ease-out;
+}
+
+@keyframes screenTransition {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.guide-card {
+    background: linear-gradient(135deg, #F0F9FF, #E0F2FE);
+    border-radius: 12px;
+    padding: 16px;
+    border-right: 4px solid var(--primary);
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.guide-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.guide-icon {
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+}
+
+.guide-message {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* ===== المسار التعليمي النشط ===== */
+.new-path-options {
+    background: linear-gradient(135deg, #F0F9FF, #E0E7FF);
+    border-radius: 16px;
+    padding: 24px;
+    border-right: 4px solid var(--primary);
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.path-welcome-text {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.new-path-options .btn {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.new-path-options .btn:last-child {
+    margin-bottom: 0;
+}
+
+.active-path-info {
+    background: linear-gradient(135deg, #DBEAFE, #E0E7FF);
+    border-radius: 16px;
+    padding: 24px;
+    border-right: 4px solid var(--primary);
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.path-info-content {
+    text-align: center;
+}
+
+.path-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0 0 8px 0;
+    text-align: center;
+}
+
+.path-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 8px 0 20px 0;
+    text-align: center;
+}
+
+.active-path-info .btn {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.active-path-info .btn:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== مرشد رفيق ===== */
+.guide-container {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== تحسينات الواجهة ===== */
+.units-intro {
+    background: linear-gradient(135deg, #F0F9FF, #E0E7FF);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.units-intro p {
+    margin: 8px 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.units-intro strong {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.intro-text {
+    font-size: 0.9rem !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.4;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.modal-units {
+    border-radius: 24px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.modal-header-units {
+    background: linear-gradient(135deg, var(--primary), #3B82F6);
+    color: white;
+    border-bottom: none;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.modal-header-units h3 {
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+/* ===== النافذة المحسنة ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.motivational-message {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.motivational-message p {
+    margin: 8px 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.motivational-message p:first-child {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+/* ===== النوافذ (Modals) ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    max-height: 70vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+    margin: 0 auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--primary-light);
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.modal-close:hover {
+    background-color: rgba(37, 99, 235, 0.1);
+}
+
+.units-list {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.unit-item {
+    padding: 16px;
+    background-color: var(--background);
+    border-radius: 12px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.unit-item:hover {
+    border-color: var(--primary);
+    background-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.unit-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.unit-item h4 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.unit-item p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.unit-stats {
+    color: var(--primary);
+    font-weight: 600;
+    text-align: center;
+}
+
+.unit-description {
+    font-size: 0.8rem !important;
+    color: var(--text-secondary) !important;
+    margin-top: 4px;
+    text-align: center;
+}
+
+/* ===== التنقل السفلي ===== */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    color: var(--inactive);
+    transition: color 0.2s ease;
+    padding: 8px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav-item.active {
+    color: var(--primary);
+    background-color: var(--primary-light);
+}
+
+.nav-item i {
+    font-size: 1.3rem;
+}
+
+.nav-item span {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* ===== تأثيرات إضافية ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===== التجاوب ===== */
+@media (max-width: 420px) {
+    :root {
+        --spacing: 12px;
+        --radius: 14px;
+        --button-radius: 10px;
+    }
+
+    .app-header {
+        padding: 10px;
+    }
+
+    .logo-text h1 { font-size: 1rem; }
+    .logo-text p { font-size: 0.75rem; }
+
+    .main-content { padding: 12px; padding-bottom: 110px; }
+
+    .card { padding: 14px; border-radius: 12px; }
+
+    .btn { height: 44px; font-size: 0.95rem; }
+    
+    .completion-message {
+        font-size: 1.1rem !important;
+    }
+    
+    .lesson-result {
+        min-height: 250px;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: var(--background);
+    }
+    
+    .phone-container {
+        width: 100%;
+        max-width: 420px;
+        height: calc(100vh - 40px);
+        max-height: 900px;
+        border-radius: 24px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        overflow: hidden;
+        border: none;
+    }
+}
+
+/* ===== مؤقت للتشخيص - يظهر iframe بحد أحمر ===== */
+.lesson-video-container {
+    background-color: #000;
+}

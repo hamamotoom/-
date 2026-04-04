@@ -1,0 +1,533 @@
+/* ===== CSS Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563EB;
+    --primary-light: rgba(37, 99, 235, 0.1);
+    --success: #22C55E;
+    --success-light: rgba(34, 197, 94, 0.1);
+    --background: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #64748B;
+    --border: #E2E8F0;
+    --inactive: #94A3B8;
+    --radius: 16px;
+    --button-radius: 12px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --spacing: 16px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans Arabic', sans-serif;
+    background-color: var(--background);
+    color: var(--text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.phone-container {
+    width: 100%;
+    max-width: 420px;
+    height: 90vh;
+    max-height: 900px;
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    position: relative;
+}
+
+.screen {
+    display: none;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--background);
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* ===== الهيدر ===== */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing);
+    background-color: white;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.logo-text h1 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.logo-text p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+.btn-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+/* ===== المحتوى الرئيسي ===== */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing);
+    padding-bottom: 100px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+/* ===== الأزرار ===== */
+.btn {
+    display: block;
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: var(--button-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    margin: 20px 0;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* ===== شاشة الامتحانات ===== */
+.exams-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.exam-card {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.exam-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.exam-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.exam-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
+.exam-btn {
+    width: 100%;
+    height: 40px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--button-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.exam-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.exam-btn:disabled {
+    background-color: var(--inactive);
+    cursor: not-allowed;
+}
+
+.exam-details {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.exam-info {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.exam-info i {
+    color: var(--primary);
+}
+
+.status-available {
+    background-color: var(--success-light);
+    color: var(--success);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.status-locked {
+    background-color: rgba(148, 163, 184, 0.1);
+    color: var(--inactive);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* ===== شاشة الامتحان الفردي ===== */
+#exam-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.question-card {
+    background: linear-gradient(135deg, var(--background) 0%, rgba(37, 99, 235, 0.02) 100%);
+    border-radius: 12px;
+    padding: 16px;
+    border: 2px solid var(--border);
+    transition: all 0.3s ease;
+    margin-bottom: 12px;
+}
+
+.question-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.question-text {
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: 1.05rem;
+}
+
+.question-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.option-label:hover {
+    border-color: var(--primary);
+    background-color: var(--primary-light);
+}
+
+.option-label input {
+    margin-left: 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+}
+
+.option-label span {
+    flex: 1;
+    text-align: right;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.option-label input:checked {
+    accent-color: var(--primary);
+}
+
+/* نتائج الإجابات */
+.answer-result-inline {
+    padding: 8px 12px;
+    margin-top: 8px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.answer-result-inline.correct-inline {
+    background-color: rgba(34, 197, 94, 0.15);
+    color: var(--success);
+    border-left: 3px solid var(--success);
+    padding-right: 12px;
+}
+
+.answer-result-inline.wrong-inline {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: #EF4444;
+    border-left: 3px solid #EF4444;
+    padding-right: 12px;
+}
+
+.correct-answer-inline {
+    font-size: 0.75rem;
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px solid rgba(239, 68, 68, 0.2);
+    color: var(--text-secondary);
+}
+
+/* ملخص الامتحان */
+.exam-summary {
+    background: linear-gradient(135deg, #f0f9ff 0%, #f3e8ff 100%);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 24px;
+    border: 2px solid #e0e7ff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.summary-header h4 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 0 12px 0;
+}
+
+.summary-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.summary-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e0e7ff;
+}
+
+.summary-stat .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.summary-stat .stat-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.correct-value { color: var(--success); }
+.wrong-value { color: #EF4444; }
+.percent-value { color: var(--primary); }
+.points-value { color: #F59E0B; }
+
+.exam-summary-list {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.exam-summary-item {
+    background: #ffffff;
+    border: 1px solid rgba(16,24,40,0.04);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-align: right;
+    color: var(--text-color);
+}
+
+.exam-summary-item.correct-item {
+    border-left: 4px solid var(--success);
+}
+
+.exam-summary-item.wrong-item {
+    border-left: 4px solid #EF4444;
+}
+
+.exam-summary-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+/* ===== التنقل السفلي ===== */
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    color: var(--inactive);
+    transition: color 0.2s ease;
+    padding: 8px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav-item.active {
+    color: var(--primary);
+    background-color: var(--primary-light);
+}
+
+.nav-item i {
+    font-size: 1.3rem;
+}
+
+.nav-item span {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* ===== التجاوب ===== */
+@media (max-width: 420px) {
+    :root {
+        --spacing: 12px;
+        --radius: 14px;
+        --button-radius: 10px;
+    }
+
+    .app-header { padding: 10px; }
+    .logo-text h1 { font-size: 1rem; }
+    .logo-text p { font-size: 0.75rem; }
+    .main-content { padding: 12px; padding-bottom: 110px; }
+    .card { padding: 14px; }
+    .btn { height: 44px; font-size: 0.95rem; }
+    .question-card { padding: 12px; }
+    .question-text { font-size: 0.95rem; }
+    .option-label { padding: 10px; }
+}
+
+@media (min-width: 768px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: var(--background);
+    }
+    .phone-container {
+        width: 100%;
+        max-width: 420px;
+        height: calc(100vh - 40px);
+        max-height: 900px;
+        border-radius: 24px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        overflow: hidden;
+    }
+}
