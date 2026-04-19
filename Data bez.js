@@ -255,7 +255,7 @@ export const GRADE_LESSONS_DATA = {
             {
                 id: 1,
                 title: "المدرسة والمواد - الصف التاسع",
-                videoUrl: "https://www.youtube.com/embed/W01N_5S8vU8",
+                videoUrl: "https://www.youtube.com/watch?v=eKuZ_a-P458&list=PLKb3fJULbOUbx28-fKN3SXnTPzmK-GT4e",
                 questions: [
                     { text: "ما معنى 'I study English'?", options: ["أدرس الإنجليزية", "أدرس الرياضيات", "أدرس العلوم"], correct: 0, category: "المحادثة" },
                     { text: "ما معنى 'Math class'?", options: ["حصة الرياضيات", "حصة اللغة", "حصة التاريخ"], correct: 0, category: "المفردات" }
